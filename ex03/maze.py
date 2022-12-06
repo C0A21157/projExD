@@ -1,4 +1,5 @@
 import tkinter as tk
+import maze_maker as mm
 
 def key_down(event):
     global key
@@ -15,7 +16,7 @@ def main_proc():#常時起動するリアルタイム処理関数
     if key=="Right":cx+=20
     if key=="Left":cx-=20
     canvas.coords("koukaton",cx,cy)#工科とん座標が動く
-    root.after(1000,main_proc)
+    root.after(100,main_proc)
 
 
 if __name__=="__main__":
@@ -25,6 +26,10 @@ if __name__=="__main__":
     canvas=tk.Canvas(root,width=1500,height=900,bg="black")
     canvas.pack()
 
+
+    maze_lst=mm.make_maze(15,9)
+    #print(maze_lst)
+    mm.show_maze(canvas,maze_lst)
     koukaton=tk.PhotoImage(file="fig/4.png")
     cx,cy=300,400
     canvas.create_image(cx,cy,image=koukaton,tag="koukaton")
