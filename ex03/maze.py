@@ -44,7 +44,8 @@ def main_proc():#常時起動するリアルタイム処理関数
         if key=="Right":mx-=1
         if key=="Left":mx+=1
 
-    cx,cy=mx*100+50,my*100+50
+    cx=mx*100+50
+    cy=my*100+50
     canvas.coords("koukaton",cx,cy)#工科とん座標が動く
     
     root.after(100,main_proc)
