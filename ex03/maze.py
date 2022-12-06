@@ -8,6 +8,15 @@ def key_up(event):
     global key
     key=""
 
+def main_proc():#常時起動するリアルタイム処理関数
+    global cx,cy
+    if key=="Up":cy -=20
+    if key=="Down":cy+=20
+    if key=="Right":cx+=20
+    if key=="Left":cx-=20
+    canvas.coords("koukaton",cx,cy)#工科とん座標が動く
+    root.after(1000,main_proc)
+
 
 if __name__=="__main__":
     root=tk.Tk()
@@ -22,5 +31,6 @@ if __name__=="__main__":
     key=""
     root.bind("<KeyPress>",key_down)
     root.bind("<KeyPress>",key_up)
+    main_proc()
     root.mainloop()
 
