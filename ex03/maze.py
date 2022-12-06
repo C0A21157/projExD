@@ -57,6 +57,7 @@ if __name__=="__main__":
     label.pack()
     tmr=0
     jid=None
+    count_up()
     root.bind("<KeyPress>",key_down)#何かのキーが押されたらキーダウンに移動
 
     
@@ -82,9 +83,10 @@ if __name__=="__main__":
     canvas.create_image(cx,cy,image=koukaton,tag="koukaton")
     canvas.create_image(ex,ey,image=tomodati,tag="friend")
     key=""
-    root.bind("<s>",count_up)
+    root.bind("<s>",key_down)
     root.bind("<KeyPress>",key_down)
     root.bind("<KeyRelease>",key_up)
+    
 
  
 
