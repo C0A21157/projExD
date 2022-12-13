@@ -68,9 +68,7 @@ def main():
                 return
             
             if event.type==pg.KEYDOWN and event.key==pg.K_1:
-                pg.quit()
-                sys.exit()
-
+                return
             
             
             
