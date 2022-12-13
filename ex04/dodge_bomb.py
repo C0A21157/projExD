@@ -3,6 +3,8 @@ import random
 import sys
 
 
+
+
 def check_bound(obj_rct, scr_rct):
     # 第1引数：こうかとんrectまたは爆弾rect
     # 第2引数：スクリーンrect
@@ -13,6 +15,13 @@ def check_bound(obj_rct, scr_rct):
     if obj_rct.top < scr_rct.top or scr_rct.bottom < obj_rct.bottom:
         tate = -1
     return yoko, tate
+
+
+
+
+
+            
+
 
 
 def main():
@@ -32,7 +41,19 @@ def main():
     # scrn_sfcにtori_rctに従って，tori_sfcを貼り付ける
     scrn_sfc.blit(tori_sfc, tori_rct) 
 
+    image_apple =pg.image.load('fig/apple.png')#アイテムリンゴの写真
+
+
+
+
+
+
+
+
     # 練習５
+   
+    
+
     bomb_sfc = pg.Surface((20, 20)) # 正方形の空のSurface
     bomb_sfc.set_colorkey((0, 0, 0))
     pg.draw.circle(bomb_sfc, (255, 0, 0), (10, 10), 10)
@@ -42,13 +63,27 @@ def main():
     scrn_sfc.blit(bomb_sfc, bomb_rct) 
     vx, vy = +1, +1
 
+    
+
+
+
+
     # 練習２
     while True:
         scrn_sfc.blit(pgbg_sfc, pgbg_rct) 
 
+        
         for event in pg.event.get():
             if event.type == pg.QUIT:
                 return
+            
+            if event.type==pg.KEYDOWN and event.key==pg.K_1:
+                pg.quit()
+                sys.exit()
+
+            
+            
+            
 
         # 練習4
         key_dct = pg.key.get_pressed() # 辞書型
@@ -74,13 +109,24 @@ def main():
 
         # 練習６
         bomb_rct.move_ip(vx, vy)
+       
         scrn_sfc.blit(bomb_sfc, bomb_rct) 
         yoko, tate = check_bound(bomb_rct, scrn_rct)
         vx *= yoko
         vy *= tate
 
         if tori_rct.colliderect(bomb_rct):
-            return
+            tori_sfc = pg.image.load("fig/8.png")
+
+           
+
+            gameover_sfc = pg.image.load("fig/gameover.jfif")
+            gameover_sfc = pg.transform.rotozoom(gameover_sfc, 0, 2.0)
+            gameover_rct = tori_sfc.get_rect()
+            gameover_rct.center = 400, 400
+            # scrn_sfcにtori_rctに従って，tori_sfcを貼り付ける
+            scrn_sfc.blit(gameover_sfc, gameover_rct)
+
 
         pg.display.update()
         clock.tick(1000)
