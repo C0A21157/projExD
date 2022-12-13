@@ -110,7 +110,7 @@ def main():
 
            
 
-            gameover_sfc = pg.image.load("fig/gameover.jfif")
+            gameover_sfc = pg.image.load("fig/gameover.jfif") #gameoverという文字を読みのファイル込む
             gameover_sfc = pg.transform.rotozoom(gameover_sfc, 0, 2.0)
             gameover_rct = tori_sfc.get_rect()
             gameover_rct.center = 400, 400
