@@ -41,18 +41,8 @@ def main():
     # scrn_sfcにtori_rctに従って，tori_sfcを貼り付ける
     scrn_sfc.blit(tori_sfc, tori_rct) 
 
-    image_apple =pg.image.load('fig/apple.png')#アイテムリンゴの写真
+    #image_apple =pg.image.load('fig/apple.png')#アイテムリンゴの写真
 
-
-
-
-
-
-
-
-    # 練習５
-   
-    
 
     bomb_sfc = pg.Surface((20, 20)) # 正方形の空のSurface
     bomb_sfc.set_colorkey((0, 0, 0))
