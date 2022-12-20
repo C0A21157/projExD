@@ -86,7 +86,7 @@ class Bomb:
         self.blit(scr)
 
 
-class Enemy:
+class Enemy: #敵キャラのクラス
     def __init__(self, img_path, ratio, vxy):
         self.sfc = pg.image.load(img_path) #mainの方で画像出力
         self.sfc = pg.transform.rotozoom(self.sfc, 0, ratio)
