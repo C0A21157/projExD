@@ -16,7 +16,7 @@ def key(e):
 
 def main():
     global scene, jid
-    
+
     if scene == 0:#初期画面
         canvas.create_text(300,100,text="食べろにょろにょろ",fill="black",font=font1,tag="スタート画面")#タイトル
         canvas.create_text(300,200,text="[操作説明]",fill="black",font=font2,tag="スタート画面")#操作説明
@@ -94,11 +94,6 @@ def main():
             pg.display.update()
         
         
-
-    
-
-
-
 if __name__ == "__main__":
     pg.init()
     root = tkinter.Tk()
